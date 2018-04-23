@@ -7,15 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B08490C205C64E9001F38BF /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08490B205C64E9001F38BF /* HomeController.swift */; };
+		2B1C9A6E2079557A00566207 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C9A6D2079557A00566207 /* PostController.swift */; };
+		2B27F21B204227930050839D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B27F21A204227930050839D /* User.swift */; };
 		2B3DC8FF20252620004CF4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3DC8FE20252620004CF4CF /* AppDelegate.swift */; };
 		2B3DC90120252620004CF4CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3DC90020252620004CF4CF /* ViewController.swift */; };
 		2B3DC90420252620004CF4CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3DC90220252620004CF4CF /* Main.storyboard */; };
 		2B3DC90720252620004CF4CF /* HandyFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B3DC90520252620004CF4CF /* HandyFinder.xcdatamodeld */; };
 		2B3DC90920252620004CF4CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B3DC90820252620004CF4CF /* Assets.xcassets */; };
 		2B3DC90C20252620004CF4CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3DC90A20252620004CF4CF /* LaunchScreen.storyboard */; };
+		2B6BF9282043824A00DA25AF /* webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6BF9272043824A00DA25AF /* webservice.swift */; };
+		2B803BCC204139C300E410DD /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B803BCB204139C300E410DD /* RegisterController.swift */; };
+		2BA32F7A2046085700DA78BB /* RegistrationContController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA32F792046085700DA78BB /* RegistrationContController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B08490B205C64E9001F38BF /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		2B1C9A6D2079557A00566207 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		2B27F21A204227930050839D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2B3DC8FB2025261F004CF4CF /* HandyFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3DC8FE20252620004CF4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B3DC90020252620004CF4CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +33,9 @@
 		2B3DC90820252620004CF4CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B3DC90B20252620004CF4CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B3DC90D20252620004CF4CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B6BF9272043824A00DA25AF /* webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webservice.swift; sourceTree = "<group>"; };
+		2B803BCB204139C300E410DD /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		2BA32F792046085700DA78BB /* RegistrationContController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationContController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +71,12 @@
 				2B3DC8FE20252620004CF4CF /* AppDelegate.swift */,
 				2B3DC90020252620004CF4CF /* ViewController.swift */,
 				2B3DC90220252620004CF4CF /* Main.storyboard */,
+				2B1C9A6D2079557A00566207 /* PostController.swift */,
+				2B08490B205C64E9001F38BF /* HomeController.swift */,
+				2B803BCB204139C300E410DD /* RegisterController.swift */,
+				2B6BF9272043824A00DA25AF /* webservice.swift */,
+				2B27F21A204227930050839D /* User.swift */,
+				2BA32F792046085700DA78BB /* RegistrationContController.swift */,
 				2B3DC90820252620004CF4CF /* Assets.xcassets */,
 				2B3DC90A20252620004CF4CF /* LaunchScreen.storyboard */,
 				2B3DC90D20252620004CF4CF /* Info.plist */,
@@ -139,8 +157,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B6BF9282043824A00DA25AF /* webservice.swift in Sources */,
+				2BA32F7A2046085700DA78BB /* RegistrationContController.swift in Sources */,
+				2B803BCC204139C300E410DD /* RegisterController.swift in Sources */,
 				2B3DC90720252620004CF4CF /* HandyFinder.xcdatamodeld in Sources */,
+				2B08490C205C64E9001F38BF /* HomeController.swift in Sources */,
+				2B1C9A6E2079557A00566207 /* PostController.swift in Sources */,
 				2B3DC90120252620004CF4CF /* ViewController.swift in Sources */,
+				2B27F21B204227930050839D /* User.swift in Sources */,
 				2B3DC8FF20252620004CF4CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
