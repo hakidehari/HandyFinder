@@ -30,10 +30,10 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "homeToPost" {
-            let postVC = segue.destination as! PostController
-            postVC.userLoggedIn = self.userLoggedIn
-            postVC.loadViewIfNeeded()
+        if segue.identifier == "homeToSearch" {
+            let searchVC = segue.destination as! SearchController
+            searchVC.userLoggedIn = self.userLoggedIn
+            searchVC.loadViewIfNeeded()
         }
     }
     
@@ -42,7 +42,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func goToPost(_ sender: Any) {
-        performSegue(withIdentifier: "homeToPost", sender: self)
+        performSegue(withIdentifier: "homeToSearch", sender: self)
     }
     
     

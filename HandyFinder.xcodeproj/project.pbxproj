@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B08490C205C64E9001F38BF /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08490B205C64E9001F38BF /* HomeController.swift */; };
-		2B1C9A6E2079557A00566207 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C9A6D2079557A00566207 /* PostController.swift */; };
+		2B1C9A6E2079557A00566207 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1C9A6D2079557A00566207 /* SearchController.swift */; };
 		2B27F21B204227930050839D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B27F21A204227930050839D /* User.swift */; };
 		2B3DC8FF20252620004CF4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3DC8FE20252620004CF4CF /* AppDelegate.swift */; };
 		2B3DC90120252620004CF4CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3DC90020252620004CF4CF /* ViewController.swift */; };
@@ -23,7 +23,7 @@
 
 /* Begin PBXFileReference section */
 		2B08490B205C64E9001F38BF /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
-		2B1C9A6D2079557A00566207 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		2B1C9A6D2079557A00566207 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		2B27F21A204227930050839D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2B3DC8FB2025261F004CF4CF /* HandyFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3DC8FE20252620004CF4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 				2B3DC8FE20252620004CF4CF /* AppDelegate.swift */,
 				2B3DC90020252620004CF4CF /* ViewController.swift */,
 				2B3DC90220252620004CF4CF /* Main.storyboard */,
-				2B1C9A6D2079557A00566207 /* PostController.swift */,
+				2B1C9A6D2079557A00566207 /* SearchController.swift */,
 				2B08490B205C64E9001F38BF /* HomeController.swift */,
 				2B803BCB204139C300E410DD /* RegisterController.swift */,
 				2B6BF9272043824A00DA25AF /* webservice.swift */,
@@ -162,7 +162,7 @@
 				2B803BCC204139C300E410DD /* RegisterController.swift in Sources */,
 				2B3DC90720252620004CF4CF /* HandyFinder.xcdatamodeld in Sources */,
 				2B08490C205C64E9001F38BF /* HomeController.swift in Sources */,
-				2B1C9A6E2079557A00566207 /* PostController.swift in Sources */,
+				2B1C9A6E2079557A00566207 /* SearchController.swift in Sources */,
 				2B3DC90120252620004CF4CF /* ViewController.swift in Sources */,
 				2B27F21B204227930050839D /* User.swift in Sources */,
 				2B3DC8FF20252620004CF4CF /* AppDelegate.swift in Sources */,
