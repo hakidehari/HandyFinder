@@ -21,8 +21,10 @@ struct User {
     var isHMan: String
     var skills: String
     var experience: String
+    var latitude: String
+    var longitude: String
     
-    init(firstName: String, lastName: String, email: String, state: String, city: String, password: String, password2: String, zipCode: String, isHMan: String, skills: String, experience: String) {
+    init(firstName: String, lastName: String, email: String, state: String, city: String, password: String, password2: String, zipCode: String, isHMan: String, skills: String, experience: String, latitude: String, longitude: String) {
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
@@ -34,6 +36,8 @@ struct User {
         self.isHMan = isHMan
         self.skills = skills
         self.experience = experience
+        self.latitude = latitude
+        self.longitude = longitude
     }
     
     init() {
@@ -48,6 +52,8 @@ struct User {
         self.isHMan = ""
         self.skills = ""
         self.experience = ""
+        self.latitude = ""
+        self.longitude = ""
     }
     
 }

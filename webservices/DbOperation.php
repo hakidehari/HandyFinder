@@ -16,15 +16,15 @@ class DbOperation
     }
  
     //Function to create a new user
-    public function register($firstName, $lastName, $email, $state, $city, $password, $zipCode, $isHMan, $skills, $experience)
+    public function register($firstName, $lastName, $email, $state, $city, $password, $zipCode, $isHMan, $skills, $experience, $latitude, $longitude)
     {
         if ($this->checkIfDuplicate($email)) {
             return false;
         }
         
         $password = md5($password);
-        $stmt = $this->conn->prepare("INSERT INTO handyman(firstName, lastName, email, state, city, password, zipCode, isHMan, skills, experience) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssssss", $firstName, $lastName, $email, $state, $city, $password, $zipCode, $isHMan, $skills, $experience);
+        $stmt = $this->conn->prepare("INSERT INTO handyman(firstName, lastName, email, state, city, password, zipCode, isHMan, skills, experience, latitude, longitude) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssssssss", $firstName, $lastName, $email, $state, $city, $password, $zipCode, $isHMan, $skills, $experience, $latitude, $longitude);
         $result = $stmt->execute();
         $stmt->close();
         if ($result) {

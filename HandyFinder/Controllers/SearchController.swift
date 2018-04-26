@@ -38,4 +38,8 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         return cell!
     }
     
+    func getDistance() {
+        
+    }
+    
 }

@@ -79,12 +79,12 @@ class RegisterController: UIViewController, WebServiceDelegate {
             
             if handyMan.isOn {
                 errorMsg.isHidden = true
-                newUser = User(firstName: firstName.text!, lastName: lastName.text!, email: email.text!, state: state.text!, city: city.text!, password: password.text!, password2: password2.text!, zipCode: zipCode.text!, isHMan: "YES", skills: "", experience: "")
+                newUser = User(firstName: firstName.text!, lastName: lastName.text!, email: email.text!, state: state.text!, city: city.text!, password: password.text!, password2: password2.text!, zipCode: zipCode.text!, isHMan: "YES", skills: "", experience: "", latitude: "\(String(describing: currentLoc!.latitude))", longitude: "\(String(describing: currentLoc!.longitude))")
                 performSegue(withIdentifier: "registrationContinued", sender: self)
             }
             
             else {
-                newUser = User(firstName: firstName.text!, lastName: lastName.text!, email: email.text!, state: state.text!, city: city.text!, password: password.text!, password2: password2.text!, zipCode: zipCode.text!, isHMan: "NO", skills: "", experience: "")
+                newUser = User(firstName: firstName.text!, lastName: lastName.text!, email: email.text!, state: state.text!, city: city.text!, password: password.text!, password2: password2.text!, zipCode: zipCode.text!, isHMan: "NO", skills: "", experience: "", latitude: "\(String(describing: currentLoc!.latitude))", longitude: "\(String(describing: currentLoc!.longitude))")
                 errorMsg.isHidden = true
                 webservice.register(finished: { isFinished in
                     if isFinished {

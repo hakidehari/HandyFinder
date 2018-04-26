@@ -49,9 +49,11 @@ class WebService: NSObject {
         let isHMan = newUser.isHMan
         let skills = newUser.skills
         let experience = newUser.experience
+        let latitude = newUser.latitude
+        let longitude = newUser.longitude
         let login = "NO"
         
-        let postParameters = "firstName="+firstName+"&lastName="+lastName+"&email="+email+"&state="+state+"&city="+city+"&password="+password+"&zipCode="+zipCode+"&isHMan="+isHMan+"&skills="+skills+"&experience="+experience+"&login="+login
+        let postParameters = "firstName="+firstName+"&lastName="+lastName+"&email="+email+"&state="+state+"&city="+city+"&password="+password+"&zipCode="+zipCode+"&isHMan="+isHMan+"&skills="+skills+"&experience="+experience+"&login="+login+"&latitude="+latitude+"&longitude="+longitude
         
         //adding the parameters to request body
         request.httpBody = postParameters.data(using: String.Encoding.utf8)
@@ -82,7 +84,7 @@ class WebService: NSObject {
                     
                     //printing the response
                     if msg == "successfully registered" {
-                        self.userLoggedIn = User(firstName: firstName, lastName: lastName, email: email, state: state, city: city, password: "", password2: "", zipCode: zipCode, isHMan: isHMan, skills: skills, experience: experience)
+                        self.userLoggedIn = User(firstName: firstName, lastName: lastName, email: email, state: state, city: city, password: "", password2: "", zipCode: zipCode, isHMan: isHMan, skills: skills, experience: experience, latitude: latitude, longitude: longitude)
                         self.delegate?.getUserData(user: self.userLoggedIn!)
                         print(msg)
                         finished(true)
@@ -163,7 +165,6 @@ class WebService: NSObject {
                     var experience: String!
                     var state: String!
                     
-                    
                     //getting the json response
                     msg = parseJSON["message"] as! String?
                     fName = parseJSON["firstName"] as! String?
@@ -178,7 +179,7 @@ class WebService: NSObject {
                     
                     
                     if msg == "login successful" {
-                        self.userLoggedIn = User(firstName: fName, lastName: lName, email: mail, state: state, city: city, password: "", password2: "" , zipCode: zip, isHMan: isHMan, skills: skills, experience: experience)
+                        self.userLoggedIn = User(firstName: fName, lastName: lName, email: mail, state: state, city: city, password: "", password2: "" , zipCode: zip, isHMan: isHMan, skills: skills, experience: experience, latitude: loginInfo["latitude"]!, longitude: loginInfo["longitude"]!)
                         self.delegate?.getUserData(user: self.userLoggedIn!)
                         finished(true)
                         print(msg)
