@@ -49,8 +49,6 @@ class ViewController: UIViewController, WebServiceDelegate, CLLocationManagerDel
             count += 1
             checkCoreData()
         }
-        print(currentLoc)
-        
     }
     
     func checkCoreData() {
@@ -97,11 +95,9 @@ class ViewController: UIViewController, WebServiceDelegate, CLLocationManagerDel
         loginInfo["password"] = passField.text
         loginInfo["latitude"] = "\(String(describing: currentLoc!.latitude))"
         loginInfo["longitude"] = "\(String(describing: currentLoc!.longitude))"
-        print(loginInfo["latitude"])
         webService.login( finished: { Bool in
             //if login success continue on to save coredata and perform segue
             if Bool {
-                print(self.userLoggedIn?.firstName)
                 print("login success")
                 
                 //handles core data insertion on main thread, then performs segue to Home
@@ -136,7 +132,6 @@ class ViewController: UIViewController, WebServiceDelegate, CLLocationManagerDel
             let homeVC = tabVC.viewControllers?.first as! HomeController
             homeVC.userLoggedIn = self.userLoggedIn
             homeVC.loadViewIfNeeded()
-            print("prepareforsgue")
         }
     }
     
@@ -144,8 +139,6 @@ class ViewController: UIViewController, WebServiceDelegate, CLLocationManagerDel
     //loads in user data retrieved from DB from webservice using webservice protocol
     func getUserData(user: User) {
         self.userLoggedIn = user
-        print("success delegate")
-        print(user)
     }
     
     

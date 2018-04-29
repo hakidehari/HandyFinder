@@ -208,7 +208,7 @@ class WebService: NSObject {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     //function that retrieves handymen within the users area
-    func retrieveHandyMen(user: User, callback: @escaping (Array<AnyObject>) -> ()) {
+    func retrieveHandyMen(callback: @escaping (Array<AnyObject>) -> ()) {
         //declare return variable
         var handymen: Array<Any>!
         
@@ -219,9 +219,10 @@ class WebService: NSObject {
         
         request.httpMethod = "POST"
         
-        let zipCode = user.zipCode
+        let latitude = loginInfo["latitude"]
+        let longitude = loginInfo["longitude"]
         
-        let postParameters = "zipCode="+zipCode
+        let postParameters = "latitude="+latitude!+"&longitude="+longitude!
         
         request.httpBody = postParameters.data(using: String.Encoding.utf8)
         

@@ -9,9 +9,10 @@ $response = array();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
-    $zipCode = $_POST['zipCode'];
+    $latitude = doubleval($_POST['latitude']);
+    $longitude = doubleval($_POST['longitude']);
     
-    $handymen = $db->retrieveHandyMen($zipCode);
+    $handymen = $db->retrieveHandyMen($latitude, $longitude);
     
     if (count($handymen) > 0) {
         $response['handymen'] = $handymen;

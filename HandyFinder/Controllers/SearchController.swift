@@ -11,11 +11,12 @@ import UIKit
 
 class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var handymen = Array<NSDictionary>()
+    var handymen: Array<NSDictionary> = []
     
     var userLoggedIn: User?
     
     @IBOutlet weak var handymanTable: UITableView!
+    
     let webService = WebService()
     
     override func viewDidLoad() {
@@ -32,14 +33,11 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         return handymen.count
     }
     
+    //will be implemented once search functionality is complete
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellSearch")
         cell?.textLabel?.text = "hello"
         return cell!
-    }
-    
-    func getDistance() {
-        
     }
     
 }

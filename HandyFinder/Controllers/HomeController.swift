@@ -6,9 +6,9 @@
 //  Copyright © 2018 EpochApps. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import CoreData
+import CoreLocation
 
 class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -21,7 +21,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var handyManTable: UITableView!
     
     override func viewDidLoad() {
-        webService.retrieveHandyMen(user: userLoggedIn!) { (response) in
+        webService.retrieveHandyMen() { (response) in
             self.handymen = response as! Array<NSDictionary>
         }
         handyManTable.delegate = self
@@ -45,7 +45,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegue(withIdentifier: "homeToSearch", sender: self)
     }
     
-    
+    //delegate function that populates the table with handymen in your area
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if handymen.count == 0 {}
@@ -54,8 +54,6 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         return cell!
     }
-    
-    
     
     
     //function that logs out and deletes coreData

@@ -21,9 +21,11 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_POST['login'] == "NO"){
     $isHMan = $_POST['isHMan'];
     $skills = $_POST['skills'];
     $experience = $_POST['experience'];
+    $latitude = doubleval($_POST['latitude']);
+    $longitude = doubleval($_POST['longitude']);
  
     //inserting values 
-    if($db->register($firstName,$lastName, $email, $state, $city, $password, $zipCode, $isHMan, $skills, $experience)){
+    if($db->register($firstName,$lastName, $email, $state, $city, $password, $zipCode, $isHMan, $skills, $experience, $latitude, $longitude)){
         $response['error']=false;
         $response['message']='successfully registered';
     }else{

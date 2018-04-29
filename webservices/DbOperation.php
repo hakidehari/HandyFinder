@@ -74,13 +74,14 @@ class DbOperation
         $stmt->close();
     }
     
-    public function retrieveHandyMen($zipCode) {
+    
+    public function retrieveHandyMen($latitude, $longitude) {
         $handymen = array();
         $isHMan = "YES";
-        $stmt = $this->conn->prepare("SELECT firstName, lastName, email, state, city, zipCode, skills, experience FROM `handyman` WHERE zipCode = ? AND isHMan = ?");
-        $stmt->bind_param("ss", $zipCode, $isHMan);
+        $stmt = $this->conn->prepare("SELECT firstName, lastName, email, state, city, zipCode, skills, experience, ( 3959 * acos( cos( radians( ?) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(?) ) + sin( radians(?) ) * sin( radians( latitude ) ) ) ) AS distance FROM handyman WHERE isHMan = ? HAVING distance < 50");
+        $stmt->bind_param("ddds", $latitude, $longitude, $latitude, $isHMan);
         $stmt->execute();
-        $stmt->bind_result($firstName, $lastName, $email, $state, $city, $zipCode, $skills, $experience);
+        $stmt->bind_result($firstName, $lastName, $email, $state, $city, $zipCode, $skills, $experience, $distance);
         while ($stmt->fetch()) {
             $arr = array();
             $arr['firstName'] = $firstName;
@@ -96,7 +97,7 @@ class DbOperation
         
         return $handymen;
         
-    }
+    } 
     
     private function checkIfDuplicate($email) {
         $stmt = $this->conn->prepare("SELECT email FROM `handyman` WHERE email = ?");
