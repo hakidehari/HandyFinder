@@ -18,6 +18,7 @@
 		2B3DC90C20252620004CF4CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3DC90A20252620004CF4CF /* LaunchScreen.storyboard */; };
 		2B6BF9282043824A00DA25AF /* webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6BF9272043824A00DA25AF /* webservice.swift */; };
 		2B803BCC204139C300E410DD /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B803BCB204139C300E410DD /* RegisterController.swift */; };
+		2B86839F2099038C008F9D99 /* HandyManController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B86839E2099038C008F9D99 /* HandyManController.swift */; };
 		2BA32F7A2046085700DA78BB /* RegistrationContController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA32F792046085700DA78BB /* RegistrationContController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		2B3DC90D20252620004CF4CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B6BF9272043824A00DA25AF /* webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webservice.swift; sourceTree = "<group>"; };
 		2B803BCB204139C300E410DD /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		2B86839E2099038C008F9D99 /* HandyManController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandyManController.swift; sourceTree = "<group>"; };
 		2BA32F792046085700DA78BB /* RegistrationContController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationContController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +84,7 @@
 				2B3DC8FE20252620004CF4CF /* AppDelegate.swift */,
 				2B803BCB204139C300E410DD /* RegisterController.swift */,
 				2B08490B205C64E9001F38BF /* HomeController.swift */,
+				2B86839E2099038C008F9D99 /* HandyManController.swift */,
 				2B1C9A6D2079557A00566207 /* SearchController.swift */,
 				2BA32F792046085700DA78BB /* RegistrationContController.swift */,
 				2B3DC90020252620004CF4CF /* ViewController.swift */,
@@ -182,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B6BF9282043824A00DA25AF /* webservice.swift in Sources */,
+				2B86839F2099038C008F9D99 /* HandyManController.swift in Sources */,
 				2BA32F7A2046085700DA78BB /* RegistrationContController.swift in Sources */,
 				2B803BCC204139C300E410DD /* RegisterController.swift in Sources */,
 				2B3DC90720252620004CF4CF /* HandyFinder.xcdatamodeld in Sources */,

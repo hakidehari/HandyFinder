@@ -16,9 +16,9 @@ class WebService: NSObject {
     
     var userLoggedIn: User?
     
-    let serviceURL = "http://127.0.0.1/handyman/webservice.php"
+    let serviceURL = "http://192.168.64.2/handyman/webservice.php"
     
-    let handyServiceURL = "http://127.0.0.1/handyman/handyservice.php"
+    let handyServiceURL = "http://192.168.64.2/handyman/handyservice.php"
     
     var delegate: WebServiceDelegate?
     

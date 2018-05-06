@@ -14,6 +14,8 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var handymen: Array<NSDictionary> = []
     
+    var handyman: NSDictionary?
+    
     let webService = WebService()
     
     var userLoggedIn: User?
@@ -21,24 +23,40 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var handyManTable: UITableView!
     
     override func viewDidLoad() {
-        webService.retrieveHandyMen() { (response) in
-            self.handymen = response as! Array<NSDictionary>
-        }
         handyManTable.delegate = self
         handyManTable.dataSource = self
-        handyManTable.reloadData()
+        webService.retrieveHandyMen() { (response) in
+            self.handymen = response as! Array<NSDictionary>
+            DispatchQueue.main.async {
+                self.handyManTable.reloadData()
+            }
+        }
     }
     
+    //overridden function that does certain things before performing the segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "homeToSearch" {
             let searchVC = segue.destination as! SearchController
             searchVC.userLoggedIn = self.userLoggedIn
             searchVC.loadViewIfNeeded()
         }
-    }
+        
+        if segue.identifier == "homeToHandyMan" {
+            let handyManVC = segue.destination as! HandyManController
+            handyManVC.userLoggedIn = self.userLoggedIn
+            handyManVC.handyMan = self.handyman
+            handyManVC.loadViewIfNeeded()
+        }
+    }//end prepare for segue method
     
+    //delegate function that dictates the number of rows in the table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return handymen.count
+        if handymen.count == 0 {
+            return 1
+        } else {
+            return handymen.count
+        }
     }
     
     @IBAction func goToPost(_ sender: Any) {
@@ -48,11 +66,19 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //delegate function that populates the table with handymen in your area
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        if handymen.count == 0 {}
+        if handymen.count == 0 {
+            cell?.textLabel?.text = "Sorry, there are no handymen in your area"
+        }
         else {
             cell?.textLabel?.text = handymen[indexPath.row]["firstName"] as! String
         }
         return cell!
+    }
+    
+    //delegate function that performs an action when a row in the table is selected
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.handyman = handymen[indexPath.row]
+        performSegue(withIdentifier: "homeToHandyMan", sender: self)
     }
     
     
