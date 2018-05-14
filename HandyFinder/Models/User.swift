@@ -40,7 +40,7 @@ struct User {
         self.longitude = longitude
     }
     
-    init() {
+    init(){
         self.firstName = ""
         self.lastName = ""
         self.email = ""
@@ -55,5 +55,7 @@ struct User {
         self.latitude = ""
         self.longitude = ""
     }
+    
+    
     
 }

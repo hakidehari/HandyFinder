@@ -36,7 +36,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     //will be implemented once search functionality is complete
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellSearch")
-        cell?.textLabel?.text = "hello"
+        cell?.textLabel?.text = handymen[indexPath.row]["firstName"] as! String
         return cell!
     }
     

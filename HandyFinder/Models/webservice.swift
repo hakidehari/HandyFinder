@@ -246,7 +246,7 @@ class WebService: NSObject {
                     if handymen == nil {
                         callback([])
                     } else {
-                        callback(handymen as! Array<AnyObject>)
+                        callback(handymen! as Array<AnyObject>)
                     }
                     
                     print(handymen)
@@ -259,6 +259,57 @@ class WebService: NSObject {
         task.resume()
         
     }//end function
+    
+    func receiveSearchHandyMen(skills: String, callback: @escaping (Array<AnyObject>) -> ()) {
+        var handymen: Array<Any>!
+        
+        //getting the request ready
+        let requestURL = NSURL(string: handyServiceURL)
+        
+        let request = NSMutableURLRequest(url: requestURL! as URL)
+        
+        request.httpMethod = "POST"
+        
+        let latitude = loginInfo["latitude"]
+        let longitude = loginInfo["longitude"]
+        
+        let postParameters = "latitude="+latitude!+"&longitude="+longitude!+"&skills="+skills
+        
+        request.httpBody = postParameters.data(using: String.Encoding.utf8)
+        
+        //starting the datatask
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            if error != nil{
+                print("error is \(error!)")
+                return;
+            }
+            
+            do {
+                //parse through the JSON to retrieve an array of dictionaries
+                let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                
+                if let parseJSON = myJSON {
+                    
+                    handymen = parseJSON["handymen"] as! Array?
+                    
+                    if handymen == nil {
+                        callback([])
+                    } else {
+                        callback(handymen! as Array<AnyObject>)
+                    }
+                    
+                    print(handymen)
+                }
+            } catch {
+                print(error)
+            }
+        }
+        
+        task.resume()
+        
+    }
     
    
     

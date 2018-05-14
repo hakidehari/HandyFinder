@@ -92,12 +92,40 @@ class DbOperation
             $arr['zipCode'] = $zipCode;
             $arr['skills'] = $skills;
             $arr['experience'] = $experience;
+            $arr['distance'] = $distance;
             array_push($handymen, $arr);
         }
         
         return $handymen;
         
     } 
+    
+    public function retrieveSearchHandyMen($latitude, $longitude, $skills) {
+        $handymen = array();
+        $isHMan = "YES";
+        $param = "%".$skills."%";
+        $stmt = $this->conn->prepare("SELECT firstName, lastName, email, state, city, zipCode, skills, experience, ( 3959 * acos( cos( radians( ?) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(?) ) + sin( radians(?) ) * sin( radians( latitude ) ) ) ) AS distance FROM handyman WHERE skills LIKE ? AND isHMan = ? HAVING distance < 50");
+        $stmt->bind_param("dddss", $latitude, $longitude, $latitude, $param, $isHMan);
+        $stmt->execute();
+        $stmt->bind_result($firstName, $lastName, $email, $state, $city, $zipCode, $skills, $experience, $distance);
+        while ($stmt->fetch()) {
+            $arr = array();
+            $arr['firstName'] = $firstName;
+            $arr['lastName'] = $lastName;
+            $arr['email'] = $email;
+            $arr['state'] = $state;
+            $arr['city'] = $city;
+            $arr['zipCode'] = $zipCode;
+            $arr['skills'] = $skills;
+            $arr['experience'] = $experience;
+            $arr['distance'] = $distance;
+            array_push($handymen, $arr);
+        }
+        
+        return $handymen;
+        
+        
+    }
     
     private function checkIfDuplicate($email) {
         $stmt = $this->conn->prepare("SELECT email FROM `handyman` WHERE email = ?");

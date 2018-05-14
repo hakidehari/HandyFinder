@@ -69,7 +69,9 @@ class ViewController: UIViewController, WebServiceDelegate, CLLocationManagerDel
                     self.webService.login(finished: { Bool in
                         if Bool {
                             print("login success1")
-                            self.performSegue(withIdentifier: "isLoggedIn", sender: self)
+                            DispatchQueue.main.async {
+                                self.performSegue(withIdentifier: "isLoggedIn", sender: self)
+                            }
                         } else {
                             print("login failed")
                         }

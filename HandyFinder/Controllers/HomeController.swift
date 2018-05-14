@@ -20,6 +20,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var userLoggedIn: User?
     
+    @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var handyManTable: UITableView!
     
     override func viewDidLoad() {
@@ -35,10 +36,10 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //overridden function that does certain things before performing the segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "homeToSearch" {
             let searchVC = segue.destination as! SearchController
             searchVC.userLoggedIn = self.userLoggedIn
+            searchVC.handymen = self.handymen
             searchVC.loadViewIfNeeded()
         }
         
@@ -60,7 +61,14 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func goToPost(_ sender: Any) {
-        performSegue(withIdentifier: "homeToSearch", sender: self)
+        let skills = self.searchField.text!
+        webService.receiveSearchHandyMen(skills: skills) {(response) in
+            self.handymen = response as! Array<NSDictionary>
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "homeToSearch", sender: self)
+            }
+            
+        }
     }
     
     //delegate function that populates the table with handymen in your area
@@ -78,6 +86,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //delegate function that performs an action when a row in the table is selected
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.handyman = handymen[indexPath.row]
+        self.handyManTable.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "homeToHandyMan", sender: self)
     }
     

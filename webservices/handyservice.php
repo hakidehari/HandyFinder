@@ -12,15 +12,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $latitude = doubleval($_POST['latitude']);
     $longitude = doubleval($_POST['longitude']);
     
-    $handymen = $db->retrieveHandyMen($latitude, $longitude);
+    if (isset($_POST['skills'])) {
+        
+        $skills = $_POST['skills'];
+        $handymen = $db->retrieveSearchHandyMen($latitude, $longitude, $skills);
+        
+        if (count($handymen) > 0) {
+            $response['handymen'] = $handymen;
+            echo json_encode($response);
+        } else {
+            $response['errorMsg'] = "no handymen found";
+            echo json_encode($response);
+        }
+    } 
     
-    if (count($handymen) > 0) {
-        $response['handymen'] = $handymen;
-        echo json_encode($response);
-    } else {
-        $response['errorMsg'] = "no handymen found";
-        echo json_encode($response);
+    else {
+    
+        $handymen = $db->retrieveHandyMen($latitude, $longitude);
+    
+        if (count($handymen) > 0) {
+            $response['handymen'] = $handymen;
+            echo json_encode($response);
+        } else {
+            $response['errorMsg'] = "no handymen found";
+            echo json_encode($response);
+        }
+        
     }
+    
+    
 }
 
 
